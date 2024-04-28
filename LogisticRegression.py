@@ -5,6 +5,8 @@ from data_utils import import_and_split_data
 
 X_train_scaled, X_test_scaled, y_train, y_test = import_and_split_data('dataset/cleaned_dataset.csv')
 
+print(X_train_scaled.shape, X_test_scaled.shape)
+
 test1 = LogisticRegression(random_state=0,
                            max_iter=1000).fit(X_train_scaled, y_train)
 

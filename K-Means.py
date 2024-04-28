@@ -46,6 +46,7 @@ plt.yticks(silhouette_scores)
 plt.grid(True)
 plt.show()
 
+# Plot davies bouldin scores
 davies_bouldin_scores = [davies_boulding_score_1, davies_boulding_score_2, davies_boulding_score_3, davies_boulding_score_4, davies_boulding_score_5, davies_boulding_score_6]
 
 max_davies_score = max(davies_bouldin_scores)
@@ -62,6 +63,7 @@ plt.yticks(davies_bouldin_scores)
 plt.grid(True)
 plt.show()
 
+# Plot clustering plots
 kmeans_models = [kmeans_1, kmeans_2, kmeans_3, kmeans_4, kmeans_5, kmeans_6]
 # Create subplots
 fig, axes = plt.subplots(3, 2, figsize=(16, 18))
