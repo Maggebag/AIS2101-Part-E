@@ -21,7 +21,6 @@ def remove_outliers(dataset_to_search):
 
 data = arff.loadarff('dataset/Rice_Cammeo_Osmancik.arff')
 dataset = pd.DataFrame(data[0])  # Dataset is a list of dictionaries
-#dataset.info()
 
 # Test for duplicated values
 if dataset.duplicated().any():
@@ -35,13 +34,15 @@ if dataset.isnull().any().any():
 else:
     print("No missing values found")
 
-#print(dataset.describe())
-
 new_dataset = remove_outliers(dataset)
-#print(outliers_found)
 
-#print(new_dataset.describe())
+# Change all objects to numerated values
+new_dataset['Class'] = pd.factorize(new_dataset['Class'])[0]
 
-plot_all(new_dataset)
+new_dataset.drop('Convex_Area', axis=1, inplace=True)
+
+new_dataset.to_csv('dataset/cleaned_dataset.csv', index=False)
+
+#plot_all(new_dataset)
 
 
